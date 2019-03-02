@@ -1,7 +1,5 @@
 FROM alpine:edge as builder
 
-ARG ATS_VERSION=8.0.2
-
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
   && apk add --no-cache --virtual .build-deps \
   build-base openssl-dev make tcl-dev pcre-dev zlib-dev \
