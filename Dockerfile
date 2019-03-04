@@ -13,7 +13,8 @@ RUN git clone https://github.com/apache/trafficserver.git \
     https://patch-diff.githubusercontent.com/raw/apache/trafficserver/pull/5104.diff \
     https://patch-diff.githubusercontent.com/raw/apache/trafficserver/pull/5105.diff \
     https://patch-diff.githubusercontent.com/raw/apache/trafficserver/pull/5107.diff \
-  && patch -p1 < 5104.diff && patch -p1 < 5105.diff && patch -p1 < 5107.diff \
+    https://patch-diff.githubusercontent.com/raw/apache/trafficserver/pull/5115.diff \
+  && patch -p1 < 5104.diff && patch -p1 < 5105.diff && patch -p1 < 5107.diff && patch -p1 < 5115.diff \
   && autoreconf -if \
   && ./configure --enable-experimental-plugins --disable-hwloc \
   && make check
