@@ -1,5 +1,6 @@
 FROM alpine:edge as builder
 
+# cjose fails for now it seems
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
   && apk add --no-cache --virtual .build-deps \
   build-base openssl-dev make tcl-dev pcre-dev zlib-dev \
@@ -17,4 +18,5 @@ RUN git clone https://github.com/apache/trafficserver.git \
   && patch -p1 < 5104.diff && patch -p1 < 5105.diff && patch -p1 < 5107.diff && patch -p1 < 5115.diff \
   && autoreconf -if \
   && ./configure --enable-experimental-plugins --disable-hwloc \
+  && make \
   && make check
