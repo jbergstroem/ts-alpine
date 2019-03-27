@@ -6,12 +6,10 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
   build-base openssl-dev make tcl-dev pcre-dev zlib-dev \
   file perl libexecinfo-dev sed linux-headers libunwind-dev \
   brotli-dev jansson-dev luajit-dev readline-dev geoip-dev \
-  git automake libtool autoconf 
+  git automake libtool autoconf
 
 RUN git clone https://github.com/apache/trafficserver.git \
   && cd trafficserver \
-  && wget https://patch-diff.githubusercontent.com/raw/apache/trafficserver/pull/5115.diff \
-  && patch -p1 < 5115.diff \
   && autoreconf -if \
   && ./configure --enable-experimental-plugins --disable-hwloc \
   && make \
